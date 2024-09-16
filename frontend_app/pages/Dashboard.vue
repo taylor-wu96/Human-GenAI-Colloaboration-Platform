@@ -99,11 +99,9 @@
                     <div class="dialogue"  v-if="message.sender === 'user'" :id="'user_question_block_' + message.id" @mouseup="handleMouseUp" @copy="handleCopy">
                       <el-avatar :size="28" class="avatar user-bg" icon="UserFilled" />
                       <div>
-                         <div class="user-title"  :id="'user_question_tag_' + message.id">
+                         <div class="user-title "  :id="'user_question_tag_' + message.id">
                           You
                         </div>
-                        <!-- <el-tag size="small" :id="'user_question_tag_' + message.id">You</el-tag> -->
-                        <!-- style="white-space: pre-line"  -->
                         <div :id="'user_question_' + message.id" v-html="message.text"></div>
                       </div>
 
@@ -114,8 +112,6 @@
                         <div class="user-title"  :id="'ai_feedback_tag_' + message.id" >
                           Chatbot
                         </div>
-                        <!-- <el-tag  :id="'ai_feedback_tag_' + message.id" size="small" type="success">Chatbot</el-tag> -->
-                        <!-- style="white-space: pre-line"  -->
                         <div  :id="'ai_feedback_' + message.id" style="word-wrap: break-word; white-space: pre-wrap; line-height:1.1" v-html="message.text"></div>
                         <!-- <el-tooltip :id="'icon_' + message.id" placement="bottom">
                           <template  #content> Copy </template>
@@ -1113,9 +1109,9 @@ export default {
     const handleCopy = (e) => {
       // console.log(e.clipboardData.getData('text/plain'));
       // console.log('Copied Text:', window.getSelection().toString());
-      console.log('Copied Text:', e.target.parentElement.id);
-      const targetElementName = e.target.name||e.target.id||e.target.parentElement.id||e.target.parentElement.parentElement.id
-          ||e.target.parentElement.parentElement.parentElement.id||e.target.nodeName;
+      // console.log('Copied Text:', e.target.parentElement.id);
+      const targetElementName=e.target.closest('.dialogue')||e.target.name||e.target.nodeName;
+      console.log('Copy Target:', targetElementName);
       sendBehavior({
         id: Date.now(),
         content: window.getSelection().toString(),
@@ -1129,7 +1125,7 @@ export default {
     const handlePaste = async (e) => {
       const pastedText = await e.clipboardData.getData('text');
       // console.log('Pasted Text:', pastedText);
-      const targetElementName = e.target.name||e.target.id||e.target.nodeName;
+      const  targetElementName=e.target.closest('.dialogue')||e.target.name||e.target.nodeName;
       sendBehavior({
         id: Date.now(),
         content: pastedText,
@@ -1154,10 +1150,7 @@ export default {
         }
         //  console.log('select:', selectedText);
         if (selectedText) {
-          // console.log('Selected Text:', selectedText);
-          
-          const targetElementName = e.target.name||e.target.id||e.target.parentElement.id||e.target.parentElement.parentElement.id
-          ||e.target.parentElement.parentElement.parentElement.id||e.target.nodeName;
+          const targetElementName=e.target.closest('.dialogue')||e.target.name||e.target.nodeName;
           console.log('targetElementName:', targetElementName);
           sendBehavior({
             id: Date.now(),
@@ -1187,8 +1180,7 @@ export default {
       if (selectedText !== '') {
         // Do something with the selected text
         // console.log('Highlight Text:', selectedText);
-        const targetElementName = e.target.name||e.target.id||e.target.parentElement.id||e.target.parentElement.parentElement.id
-          ||e.target.parentElement.parentElement.parentElement.id||e.target.nodeName;
+        const targetElementName=e.target.closest('.dialogue')||e.target.name||e.target.nodeName;
         console.log('targetElementName:', targetElementName);
         // targetElementName.split('_');
         sendBehavior({
