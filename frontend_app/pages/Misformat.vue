@@ -3,7 +3,7 @@
     <el-row class="brand-area">
       <img src="../static/logo.png" alt="PopAi" style="width: 40px; height: 40px; margin-right: 10px;" /> 
       <div class="brand-class">
-        Co-here | Your Travel Ideas Workspace
+        GoThere | Your Travel Ideas Workspace
       </div> 
     </el-row>
     <el-card class="misformat-card">

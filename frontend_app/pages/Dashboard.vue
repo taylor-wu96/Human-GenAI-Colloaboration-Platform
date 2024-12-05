@@ -6,7 +6,7 @@
           <el-row :gutter="20" class="brand-area">
             <img src="../static/logo.png" alt="PopAi" style="width: 40px; height: 40px; margin-right: 10px;" /> 
             <div class="brand-class">
-              Co-here | Your Travel Ideas Workspace
+              GoThere | Your Travel Ideas Workspace
             </div> 
             <el-button style="margin-left:8px;" round ref="infoRef" size="small" type="info" icon="InfoFilled" @click="open = true">
               Help
@@ -243,7 +243,7 @@
 
         <!-- Tour Code -->
         <el-tour :close-on-press-escape="attendTour" :show-close="attendTour" @finish="tourFinished" :mask="{ color: 'rgba(0, 0, 0, 0.82)' }" v-model="open" type="default" class="web-tour" :content-style="{ borderRadius:'12px' ,boxShadowing:'rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px'}" >
-          <el-tour-step  :next-button-props="{children:'Next, see the introduction ...' }" title="Co-here Intro Video" :content-style="{ maxWidth: '800px' ,minHeight:'520px', width:'80%', padding:'20px 40px',borderRadius:'12px' ,boxShadowing:'rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px'}">
+          <el-tour-step  :next-button-props="{children:'Next, see the introduction ...' }" title="GoThere Intro Video" :content-style="{ maxWidth: '800px' ,minHeight:'520px', width:'80%', padding:'20px 40px',borderRadius:'12px' ,boxShadowing:'rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px'}">
             <div class="video">
               <iframe width="560" height="500" src="https://www.youtube-nocookie.com/embed/2B4wmbdMrc4?si=6vW6uB7JPcdf9OX7&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
